@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/task_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="36dp"
+        android:layout_height="17dp"
+        android:layout_gravity="left"
+        android:backgroundTint="@color/white"
+        android:foregroundTint="#D10F0F"
+        android:indeterminateTint="#F5FB0E"
+        android:progressBackgroundTint="#BD0F0F"
+        android:progressTint="#FFEB3B" />
+
+    <TextView
+        android:id="@+id/taskLoadingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center|left"
+        android:maxLines="1"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/taskLoadingDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="left"
+        android:maxLines="3"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp" />
+
+</LinearLayout>

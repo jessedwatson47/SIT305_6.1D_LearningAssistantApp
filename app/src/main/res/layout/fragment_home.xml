@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E93BD"
+    tools:context=".HomeFragment">
+
+    <TextView
+        android:id="@+id/home_text_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Hello,"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/home_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Your Name"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_text_hello" />
+
+
+    <ImageView
+        android:id="@+id/home_image_user"
+        android:layout_width="71dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/user" />
+
+    <LinearLayout
+        android:id="@+id/results_layout_notification"
+        style="@style/NotificationStyle"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_image_user">
+
+        <ImageView
+            android:id="@+id/results_image_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00121111"
+            android:src="@android:drawable/ic_popup_reminder"
+            app:tint="#000000"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="148dp" />
+
+        <TextView
+            android:id="@+id/results_text_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have 1 task due!"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="161dp" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_task_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/results_layout_notification" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
