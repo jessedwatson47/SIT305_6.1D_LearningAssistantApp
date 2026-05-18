@@ -3,6 +3,7 @@ package com.example.learningassistantapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -72,6 +74,7 @@ public class HomeFragment extends Fragment {
         LinearLayout notificationBg = view.findViewById(R.id.results_layout_notification);
         userName.setText(username);
         RecyclerView tasksRecyclerView = view.findViewById(R.id.home_task_recyclerview);
+        Button profileButton = view.findViewById(R.id.home_button_profile);
 
 
         // Set RecyclerView
@@ -193,6 +196,17 @@ public class HomeFragment extends Fragment {
             notificationCount.setVisibility(View.VISIBLE);
             notificationCount.setText("You have " + returnedTasks.size() + " task(s) due!");
         }
+
+        // Listeners
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("userId", userId);
+                var navController = NavHostFragment.findNavController(HomeFragment.this);
+                navController.navigate(R.id.profileFragment, bundle);
+            }
+        });
 
 
 

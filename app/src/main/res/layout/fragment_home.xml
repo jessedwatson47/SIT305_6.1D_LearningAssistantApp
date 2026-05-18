@@ -35,13 +35,13 @@
 
     <ImageView
         android:id="@+id/home_image_user"
-        android:layout_width="71dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="56dp"
+        android:src="@drawable/user"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/user" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/results_layout_notification"
@@ -49,12 +49,12 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_image_user">
+        app:layout_constraintTop_toBottomOf="@+id/home_button_profile">
 
         <ImageView
             android:id="@+id/results_image_notification"
@@ -71,8 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You have 1 task due!"
-            android:textStyle="bold"
             android:textColor="#000000"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="161dp" />
 
@@ -91,5 +91,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/results_layout_notification" />
+
+    <Button
+        android:id="@+id/home_button_profile"
+        style="@style/NavigationButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/navigation_button"
+        android:text="Profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_image_user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

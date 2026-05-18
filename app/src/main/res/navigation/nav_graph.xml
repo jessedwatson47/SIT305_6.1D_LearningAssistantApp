@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_homeFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/interestsFragment"
@@ -58,4 +61,26 @@
             android:id="@+id/action_resultsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.learningassistantapp.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_upgradeFragment"
+            app:destination="@id/upgradeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.learningassistantapp.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/upgradeFragment"
+        android:name="com.example.learningassistantapp.UpgradeFragment"
+        android:label="fragment_upgrade"
+        tools:layout="@layout/fragment_upgrade" />
 </navigation>

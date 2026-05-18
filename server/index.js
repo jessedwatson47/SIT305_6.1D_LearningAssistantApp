@@ -35,7 +35,7 @@ const taskSchema = {
                   answer1: {type: "string"},
                   answer2: {type: "string"},
                   answer3: {type: "string"},
-                  correctanswerid: {type: "number"},
+                  correctanswerid: {type: "number", enum: [1, 2, 3]},
                 },
                 required: ["question", "title", "answer1", "answer2", "answer3", "correctanswerid"],
                 additionalProperties: false,
@@ -82,7 +82,7 @@ app.get("/getTasks", async (req, res) => {
     input: `For each topic of interest provided in the query (delimited by commas), generate exactly one task. 
     Each task must contain a short title (e.g. Algorithms: Fundamentals, Data Structures: Basics, Algorithms: Bubble Sort vs Selection Sort), a short description, and 3 quiz questions.
     Each quiz question must contain a question, answer1, answer2, answer3 and the correctanswerid.
-    The correctanswerid MUST be 0, 1 or 2.
+    The correctanswerid MUST be 1, 2 or 3.
     Do not address the user. Keep language concise. Do not add fluff or any personality. You are a content generator.
     Return valid JSON only!
     Query: ${query}`,
@@ -109,6 +109,22 @@ app.get("/getExplanation", async (req, res) => {
     model: "gpt-5.4-nano",
     input: `Write a succinct, concise and slightly guiding hint for the provided query.
     Do not address the user. Do not add fluff. The purpose is for providing simple short hints regarding a quiz.
+    Query: ${query}`,
+  });
+
+  res.send(`${response.output_text}`);
+});
+
+app.get("/getSummary", async (req, res) => {
+  const {query} = req.query;
+
+  const response = await client.responses.create({
+    model: "gpt-5.4-nano",
+    input: `Write a list of the users weak topics. 
+    An example response: You need to work on Topic1, Topic2 & Topic3.
+    Do not address the user. Do not add fluff. Do not add focuses of the topic. Just the overarching topic. E.g. Big O, DSA, JavaScript etc.
+    Simply return the example response with the topics filled in.
+    
     Query: ${query}`,
   });
 

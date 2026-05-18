@@ -34,6 +34,7 @@ public class QuizFragment extends Fragment {
     private TextView questionContent;
     private RadioGroup questionRadioGroup;
     private RadioButton answer1Radio;
+    private QuestionDao questionDao;
     private RadioButton answer2Radio;
     private RadioButton answer3Radio;
     // Next Quiz Question Elements
@@ -76,7 +77,7 @@ public class QuizFragment extends Fragment {
 
         UserDao userDao = db.userDao();
         TaskDao taskDao = db.taskDao();
-        QuestionDao questionDao = db.questionDao();
+        questionDao = db.questionDao();
 
 
         // Elements
@@ -118,6 +119,7 @@ public class QuizFragment extends Fragment {
                     // Add toast potentially
                     return;
                 }
+                SaveAnswer();
                 // Navigate to results page
                 Bundle bundle = new Bundle();
                 bundle.putInt("taskid", args.getInt("taskid"));
@@ -131,15 +133,7 @@ public class QuizFragment extends Fragment {
         nextQuestionBg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int checkedRadioButtonId = questionRadioGroup.getCheckedRadioButtonId();
-                if (checkedRadioButtonId != -1)
-                {
-
-                    if (checkedRadioButtonId == R.id.quiz_radio1) currentQuestion.selectedanswerid = 0;
-                    if (checkedRadioButtonId == R.id.quiz_radio2) currentQuestion.selectedanswerid = 1;
-                    if (checkedRadioButtonId == R.id.quiz_radio3) currentQuestion.selectedanswerid = 2;
-                    questionDao.update(currentQuestion);
-                }
+                SaveAnswer();
                 // Load Next Question
                 if (currentQuestionIndex + 1 < questions.size())
                 {
@@ -175,5 +169,19 @@ public class QuizFragment extends Fragment {
             nextQuestionBg.setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    private void SaveAnswer()
+    {
+        int checkedRadioButtonId = questionRadioGroup.getCheckedRadioButtonId();
+
+        if (checkedRadioButtonId != -1)
+        {
+            if (checkedRadioButtonId == R.id.quiz_radio1) currentQuestion.selectedanswerid = 1;
+            if (checkedRadioButtonId == R.id.quiz_radio2) currentQuestion.selectedanswerid = 2;
+            if (checkedRadioButtonId == R.id.quiz_radio3) currentQuestion.selectedanswerid = 3;
+
+            questionDao.update(currentQuestion);
+        }
     }
 }

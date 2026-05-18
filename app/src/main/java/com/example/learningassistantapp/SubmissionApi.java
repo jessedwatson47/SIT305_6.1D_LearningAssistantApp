@@ -10,4 +10,7 @@ public interface SubmissionApi {
 
     @GET("getExplanation")
     Call<String> getExplanation(@Query("query") String explanation);
+
+    @GET("getSummary")
+    Call<String> getSummary(@Query("query") String query);
 }
